@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\UtilisateurAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,10 @@ Route::get('/utilisateur' , [UtilisateurController::class, 'liste_utilisateur'])
 /* ajouter un utilisateur */
 Route::get('/ajouter' , [UtilisateurController::class, 'ajouter_utilisateur']);
 Route::post('/ajouter/traitement' , [UtilisateurController::class, 'ajouter_utilisateur_traitement']);
+
+/** Formulaire de login */
+
+Route::get('/inscription', [UtilisateurAuth::class, 'form_inscription']);
+Route::post('/inscription', [UtilisateurAuth::class, 'inscription']);
+Route::get('/connexion', [UtilisateurAuth::class, 'form_connexion']);
+Route::post('/connexion', [UtilisateurAuth::class, 'connexion']);
